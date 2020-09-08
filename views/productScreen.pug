@@ -1,0 +1,67 @@
+extends index.pug
+
+block content
+    div.content
+        div.back-to-result
+            a(href="/#/") Back To Home
+        div.details
+            div.details-image
+                img(src=product.image alt=product.name)
+            div.details-info
+                ul
+                    li
+                        h1= product.name
+                    li
+                        div.rating
+                            span
+                                i(class=product.rating >= 1
+                                    ? 'fa fa-star'
+                                    : product.rating >= 0.5 
+                                    ? 'fa fa-star-half-o'
+                                    : 'fa fa-star-o'
+                                )
+                            span
+                                i(class=product.rating >= 2
+                                    ? 'fa fa-star'
+                                    : product.rating >= 0.5 
+                                    ? 'fa fa-star-half-o'
+                                    : 'fa fa-star-o'
+                                )
+                            span
+                                i(class=product.rating >= 3
+                                    ? 'fa fa-star'
+                                    : product.rating >= 0.5 
+                                    ? 'fa fa-star-half-o'
+                                    : 'fa fa-star-o'
+                                )
+                            span
+                                i(class=product.rating >= 4
+                                    ? 'fa fa-star'
+                                    : product.rating >= 0.5 
+                                    ? 'fa fa-star-half-o'
+                                    : 'fa fa-star-o'
+                                )
+                            span
+                                i(class=product.rating >= 5
+                                    ? 'fa fa-star'
+                                    : product.rating >= 0.5 
+                                    ? 'fa fa-star-half-o'
+                                    : 'fa fa-star-o'
+                                )
+                            span= ' ' + product.numReviews || ''
+                        
+                    li Price: Rp #{product.price}
+                    li Description:
+                        div #{product.description}
+ 
+            div.details-action
+                ul
+                    - var price = "<strong>Rp ${product.price}</strong>"
+                    li Price: !{price}
+                    li Status :
+                        - if product.countInStock > 0
+                            span.success In Stock
+                        - else
+                            span.error Unavailable
+                    li
+                        button(id="add-button" class="primary") Tambah ke Keranjang

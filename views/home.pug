@@ -1,0 +1,56 @@
+extends index.pug
+
+block content
+    ul.products
+        each product in products
+            li
+                div(class="product")
+                    a(href="/product/"+product.id)
+                        img(src=product.image, alt=product.name)
+                    div(class="product-name")
+                        a(href="/product/"+product.id) #{product.name}
+                    unless product.rating
+                        div
+                    else
+                        div.rating
+                            span
+                                i(class=product.rating >= 1
+                                    ? 'fa fa-star'
+                                    : product.rating >= 0.5 
+                                    ? 'fa fa-star-half-o'
+                                    : 'fa fa-star-o'
+                                )
+                            span
+                                i(class=product.rating >= 2
+                                    ? 'fa fa-star'
+                                    : product.rating >= 0.5 
+                                    ? 'fa fa-star-half-o'
+                                    : 'fa fa-star-o'
+                                )
+                            span
+                                i(class=product.rating >= 3
+                                    ? 'fa fa-star'
+                                    : product.rating >= 0.5 
+                                    ? 'fa fa-star-half-o'
+                                    : 'fa fa-star-o'
+                                )
+                            span
+                                i(class=product.rating >= 4
+                                    ? 'fa fa-star'
+                                    : product.rating >= 0.5 
+                                    ? 'fa fa-star-half-o'
+                                    : 'fa fa-star-o'
+                                )
+                            span
+                                i(class=product.rating >= 5
+                                    ? 'fa fa-star'
+                                    : product.rating >= 0.5 
+                                    ? 'fa fa-star-half-o'
+                                    : 'fa fa-star-o'
+                                )
+                            span= ' ' + product.numReviews || '' 
+                    div(class="product-price") RP #{product['price']}
+                    div
+                        button(id="add-button" class="primary") Edit
+                        button(class="danger") Delete
+            br

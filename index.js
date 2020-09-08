@@ -9,10 +9,10 @@ app.use(express.static('public'));
 
 function getMySQLConnection() {
     return mysql.createConnection({
-        host : 'localhost',
-        user : 'root',
-        password : 'password',
-        database : 'tokoistar'
+        host : 'us-cdbr-east-02.cleardb.com',
+        user : 'b72464f224a05e',
+        password : '74a502ef',
+        database : 'heroku_aeb52b15d88150a'
     });
 }
 
